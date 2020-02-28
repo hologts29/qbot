@@ -76,7 +76,7 @@ client.on("message", async message => {
     if(command === "help") {
         return message.channel.send({embed: {
             color: 11253955,
-            description: `My commands are \`${config.prefix}help\`, \`${config.prefix}setrank <user> <rank number>\`, \`${config.prefix}promote <user>\`, \`${config.prefix}demote <user>\`, \`${config.prefix}fire <user>\`, \`${config.prefix}shout <msg>\`, and \`${config.prefix}clearshout\`.`,
+            description: `Mis comandos son: \`${config.prefix}help\`, \`${config.prefix}setrank <user> <rank number>\`, \`${config.prefix}promote <user>\`, \`${config.prefix}demote <user>\`, \`${config.prefix}fire <user>\`, \`${config.prefix}shout <msg>\`, and \`${config.prefix}clearshout\`.`,
             author: {
                 name: message.author.tag,
                 icon_url: message.author.displayAvatarURL
@@ -88,7 +88,7 @@ client.on("message", async message => {
         if(!message.member.roles.some(r=>["Ranking Permissions"].includes(r.name)) )
             return message.channel.send({embed: {
                 color: 15406156,
-                description: "You need the `Ranking Permissions` role to run this command.",
+                description: "Precisas el rol de `Ranking Permissions` Para usar este comando.",
                 author: {
                     name: message.author.tag,
                     icon_url: message.author.displayAvatarURL
@@ -101,7 +101,7 @@ client.on("message", async message => {
                 if(!rankIdentifier){
                     return message.channel.send({embed: {
                         color: 15406156,
-                        description: "Please specify a rank.",
+                        description: "Porfavor especifica un nombre.",
                         author: {
                             name: message.author.tag,
                             icon_url: message.author.displayAvatarURL
@@ -120,7 +120,7 @@ client.on("message", async message => {
                         if(config.maximumRank <= rank){
                             message.channel.send({embed: {
                                 color: 15406156,
-                                description: "This rank cannot be ranked by this bot.",
+                                description: "Este rango no puede ser cambiado por el BOT.",
                                 author: {
                                     name: message.author.tag,
                                     icon_url: message.author.displayAvatarURL
@@ -130,7 +130,7 @@ client.on("message", async message => {
                             if(rankIdentifier == 'NOT_FOUND'){
                                 return message.channel.send({embed: {
                                     color: 15406156,
-                                    description: "Rank not found.",
+                                    description: "Rango No encontrado.",
                                     author: {
                                         name: message.author.tag,
                                         icon_url: message.author.displayAvatarURL
@@ -143,7 +143,7 @@ client.on("message", async message => {
                                 .then(function(rolename){
                                     message.channel.send({embed: {
                                         color: 8117429,
-                                        description: `You have successfully ranked ${username} to ${rolename} (${rankIdentifier})!`,
+                                        description: `Haz rankeado ${username} a ${rolename} (${rankIdentifier})!`,
                                         author: {
                                             name: message.author.tag,
                                             icon_url: message.author.displayAvatarURL
@@ -153,7 +153,7 @@ client.on("message", async message => {
                                     var logchannel = message.guild.channels.get(config.logchannelid);
                                     logchannel.send({embed: {
                                         color: 11253955,
-                                        description: `<@${message.author.id}> has ranked ${username} to ${rolename} (${rankIdentifier}).`,
+                                        description: `<@${message.author.id}> Rankeo ${username} to ${rolename} (${rankIdentifier}).`,
                                         author: {
                                             name: message.author.tag,
                                             icon_url: message.author.displayAvatarURL
@@ -171,7 +171,7 @@ client.on("message", async message => {
                                 console.log(chalk.red('Issue with setRank: ' + err));
                                 message.channel.send({embed: {
                                     color: 15406156, 
-                                    description: "Oops! Something went wrong. The issue has been logged to the bot console.",
+                                    description: "Oops! Algo salio mal. El problema ha sido enviado A la consola.",
                                     author: {
                                         name: message.author.tag,
                                         icon_url: message.author.displayAvatarURL
@@ -182,7 +182,7 @@ client.on("message", async message => {
                     }).catch(function(err){
                         message.channel.send({embed: {
                             color: 15406156,
-                            description: "Oops! Something went wrong. The issue has been logged to the bot console.",
+                            description: "Oops! Algo salio mal. El problema ha sido enviado A la consola.",
                             author: {
                                 name: message.author.tag,
                                 icon_url: message.author.displayAvatarURL
@@ -192,7 +192,7 @@ client.on("message", async message => {
                 }).catch(function(err){
                     message.channel.send({embed: {
                         color: 15406156,
-                        description: `Oops! ${username} does not exist in the Roblox user database. Perhaps you misspelled?`,
+                        description: `Oops! ${username} No existe en la database de ROBLOX. Tal vez escribiste mal.`,
                         author: {
                             name: message.author.tag,
                             icon_url: message.author.displayAvatarURL
@@ -202,7 +202,7 @@ client.on("message", async message => {
             } else {
                 message.channel.send({embed: {
                     color: 15406156,
-                    description: "Please specify a target username.",
+                    description: "Porfavor especifica un nombre.",
                     author: {
                         name: message.author.tag,
                         icon_url: message.author.displayAvatarURL
@@ -216,7 +216,7 @@ client.on("message", async message => {
         if(!message.member.roles.some(r=>["Ranking Permissions"].includes(r.name)) )
             return message.channel.send({embed: {
                 color: 15406156,
-                description: "You need the `Ranking Permissions` role to run this command.",
+                description: "Necesitas el rol`Ranking Permissions`Para usar este comando.",
                 author: {
                     name: message.author.tag,
                     icon_url: message.author.displayAvatarURL
@@ -231,7 +231,7 @@ client.on("message", async message => {
                         if(config.maximumRank <= rank){
                             message.channel.send({embed: {
                                 color: 15406156,
-                                description: "This rank cannot be promoted by this bot.",
+                                description: "Este rango no puede ser dado por el bot.",
                                 author: {
                                     name: message.author.tag,
                                     icon_url: message.author.displayAvatarURL
@@ -246,7 +246,7 @@ client.on("message", async message => {
                                     .then(function(roleid){
                                         message.channel.send({embed: {
                                             color: 8117429,
-                                            description: `You have successfully promoted ${username} to ${rolename} (${roleid})!`,
+                                            description: `Has Exitosame promovido ${username} to ${rolename} (${roleid})!`,
                                             author: {
                                                 name: message.author.tag,
                                                 icon_url: message.author.displayAvatarURL
@@ -258,7 +258,7 @@ client.on("message", async message => {
                                 var logchannel = message.guild.channels.get(config.logchannelid);
                                 logchannel.send({embed: {
                                     color: 11253955,
-                                    description: `<@${message.author.id}> has promoted ${username}.`,
+                                    description: `<@${message.author.id}> Ha promovido ${username}.`,
                                     author: {
                                         name: message.author.tag,
                                         icon_url: message.author.displayAvatarURL
@@ -275,7 +275,7 @@ client.on("message", async message => {
                                 console.log(chalk.red('Issue with promote: ' + err));
                                 message.channel.send({embed: {
                                     color: 15406156, 
-                                    description: "Oops! Something went wrong. The issue has been logged to the bot console.",
+                                    description: "Oops! Algo salio mal. El problema ha sido enviado a la consola.",
                                     author: {
                                         name: message.author.tag,
                                         icon_url: message.author.displayAvatarURL
@@ -286,7 +286,7 @@ client.on("message", async message => {
                     }).catch(function(err){
                         message.channel.send({embed: {
                             color: 15406156,
-                            description: "Oops! Something went wrong. The issue has been logged to the bot console.",
+                            description: "Oops! Algo salio mal. El problema ha sido enviado a la consola.",
                             author: {
                                 name: message.author.tag,
                                 icon_url: message.author.displayAvatarURL
@@ -296,7 +296,7 @@ client.on("message", async message => {
                 }).catch(function(err){
                     message.channel.send({embed: {
                         color: 15406156,
-                        description: `Oops! ${username} does not exist in the Roblox user database. Perhaps you misspelled?`,
+                        description: `Oops! ${username} No existe en la database de ROBLOX. Tal vez lo escribiste mal?`,
                         author: {
                             name: message.author.tag,
                             icon_url: message.author.displayAvatarURL
@@ -306,7 +306,7 @@ client.on("message", async message => {
             } else {
                 message.channel.send({embed: {
                     color: 15406156,
-                    description: "Please specify a target username.",
+                    description: "Porfavor especifica un nombre.",
                     author: {
                         name: message.author.tag,
                         icon_url: message.author.displayAvatarURL
@@ -320,7 +320,7 @@ client.on("message", async message => {
         if(!message.member.roles.some(r=>["Ranking Permissions"].includes(r.name)) )
             return message.channel.send({embed: {
                 color: 15406156,
-                description: "You need the `Ranking Permissions` role to run this command.",
+                description: "Necesitas el rol `Ranking Permissions` Para usar este comando.",
                 author: {
                     name: message.author.tag,
                     icon_url: message.author.displayAvatarURL
@@ -335,7 +335,7 @@ client.on("message", async message => {
                         if(config.maximumRank <= rank){
                             message.channel.send({embed: {
                                 color: 15406156,
-                                description: "This rank cannot be ranked by this bot.",
+                                description: "Este rango no puede ser dado por el BOT.",
                                 author: {
                                     name: message.author.tag,
                                     icon_url: message.author.displayAvatarURL
@@ -350,7 +350,7 @@ client.on("message", async message => {
                                     .then(function(roleid){
                                         message.channel.send({embed: {
                                             color: 8117429,
-                                            description: `You have successfully demoted ${username} to ${rolename} (${roleid})!`,
+                                            description: `Has bajado el rango de ${username} to ${rolename} (${roleid})!`,
                                             author: {
                                                 name: message.author.tag,
                                                 icon_url: message.author.displayAvatarURL
@@ -362,7 +362,7 @@ client.on("message", async message => {
                                 var logchannel = message.guild.channels.get(config.logchannelid);
                                 logchannel.send({embed: {
                                     color: 11253955,
-                                    description: `<@${message.author.id}> has demoted ${username}.`,
+                                    description: `<@${message.author.id}> ha bajado el rango de ${username}.`,
                                     author: {
                                         name: message.author.tag,
                                         icon_url: message.author.displayAvatarURL
@@ -379,7 +379,7 @@ client.on("message", async message => {
                                 console.log(chalk.red('Issue with demote: ' + err));
                                 message.channel.send({embed: {
                                     color: 15406156, 
-                                    description: "Oops! Something went wrong. The issue has been logged to the bot console.",
+                                    description: "Oops! Algo salio mal. El problema ha sido enviado a la  consola.",
                                     author: {
                                         name: message.author.tag,
                                         icon_url: message.author.displayAvatarURL
@@ -390,7 +390,7 @@ client.on("message", async message => {
                     }).catch(function(err){
                         message.channel.send({embed: {
                             color: 15406156,
-                            description: "Oops! Something went wrong. The issue has been logged to the bot console.",
+                            description: "Oops! Algo salio mal. El problema ha sido enviado a la  consola.",
                             author: {
                                 name: message.author.tag,
                                 icon_url: message.author.displayAvatarURL
@@ -400,7 +400,7 @@ client.on("message", async message => {
                 }).catch(function(err){
                     message.channel.send({embed: {
                         color: 15406156,
-                        description: `Oops! ${username} does not exist in the Roblox user database. Perhaps you misspelled?`,
+                        description: `Oops! ${username} No existe en la database de ROBLOX. Tal vez lo escribiste mal?`,
                         author: {
                             name: message.author.tag,
                             icon_url: message.author.displayAvatarURL
@@ -410,7 +410,7 @@ client.on("message", async message => {
             } else {
                 message.channel.send({embed: {
                     color: 15406156,
-                    description: "Please specify a target username.",
+                    description: "Porfavor especifica un nombre.",
                     author: {
                         name: message.author.tag,
                         icon_url: message.author.displayAvatarURL
@@ -424,7 +424,7 @@ client.on("message", async message => {
         if(!message.member.roles.some(r=>["Ranking Permissions"].includes(r.name)) )
             return message.channel.send({embed: {
                 color: 15406156,
-                description: "You need the `Ranking Permissions` role to run this command.",
+                description: "Necesitas el rol `Ranking Permissions` para usar este comando.",
                 author: {
                     name: message.author.tag,
                     icon_url: message.author.displayAvatarURL
@@ -439,7 +439,7 @@ client.on("message", async message => {
                         if(config.maximumRank <= rank){
                             message.channel.send({embed: {
                                 color: 15406156,
-                                description: "This rank cannot be ranked by this bot.",
+                                description: "Este rango no puede ser cambiado por el bot.",
                                 author: {
                                     name: message.author.tag,
                                     icon_url: message.author.displayAvatarURL
@@ -454,7 +454,7 @@ client.on("message", async message => {
                                     .then(function(roleid){
                                         message.channel.send({embed: {
                                             color: 8117429,
-                                            description: `You have successfully fired ${username}.`,
+                                            description: `Has despedido a ${username}.`,
                                             author: {
                                                 name: message.author.tag,
                                                 icon_url: message.author.displayAvatarURL
@@ -466,7 +466,7 @@ client.on("message", async message => {
                                 var logchannel = message.guild.channels.get(config.logchannelid);
                                 logchannel.send({embed: {
                                     color: 11253955,
-                                    description: `<@${message.author.id}> has fired ${username}.`,
+                                    description: `<@${message.author.id}> Ha despedido ${username}.`,
                                     author: {
                                         name: message.author.tag,
                                         icon_url: message.author.displayAvatarURL
